@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv0cgk6rohrlg"]
+
+[ext_resource type="Script" path="res://scripts/level_structure.gd" id="1_fwuci"]
+[ext_resource type="Shader" path="res://scenes/levels/level_structure.gdshader" id="2_6ojke"]
+[ext_resource type="Texture2D" uid="uid://0c2d7vqvxo0b" path="res://sprites/backgrounds/pop.png" id="3_bmkt6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv3xf"]
+shader = ExtResource("2_6ojke")
+shader_parameter/lod = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fkgw"]
+size = Vector2(1152, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt5pn"]
+size = Vector2(1152, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x06l"]
+size = Vector2(16, 592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5nuv"]
+size = Vector2(16, 592)
+
+[node name="LevelStructure" type="StaticBody2D" groups=["structure"]]
+script = ExtResource("1_fwuci")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+texture = ExtResource("3_bmkt6")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_rv3xf")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 656.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(576, 632)
+shape = SubResource("RectangleShape2D_6fkgw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(576, 8)
+shape = SubResource("RectangleShape2D_pt5pn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(8, 312)
+shape = SubResource("RectangleShape2D_4x06l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(1144, 312)
+shape = SubResource("RectangleShape2D_l5nuv")

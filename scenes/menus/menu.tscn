@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjrk2kcg6bkce"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_blv8e"]
+[ext_resource type="Texture2D" uid="uid://dchywidhtbo6a" path="res://sprites/textures/Tile/Tile 5 - 128x128.png" id="2_vv5mf"]
+[ext_resource type="PackedScene" uid="uid://io0uvwdaxqcb" path="res://scenes/useless_ball.tscn" id="3_6fmcn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohysy"]
+size = Vector2(128, 656)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cgq4k"]
+a = Vector2(704, -432)
+b = Vector2(-192, -432)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.925
+offset_right = 9.92505
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blv8e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.266667, 0.619608, 0.223529, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -9.925
+offset_right = 118.075
+offset_bottom = 616.0
+grow_vertical = 2
+texture = ExtResource("2_vv5mf")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.266667, 0.619608, 0.223529, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 1014.08
+offset_right = 1142.07
+offset_bottom = 616.0
+grow_vertical = 2
+texture = ExtResource("2_vv5mf")
+stretch_mode = 1
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(546.075, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-492, 24)
+shape = SubResource("RectangleShape2D_ohysy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-236, 144)
+shape = SubResource("SegmentShape2D_cgq4k")
+debug_color = Color(0.964706, 0, 0.498039, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-236, 768)
+shape = SubResource("SegmentShape2D_cgq4k")
+debug_color = Color(0.964706, 0, 0.498039, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(532, 24)
+shape = SubResource("RectangleShape2D_ohysy")
+
+[node name="Ball" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(252.075, 170)
+
+[node name="Ball2" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(748.075, 160)
+
+[node name="Ball3" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(262.075, 522)
+
+[node name="Ball4" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(758.075, 512)
+
+[node name="Ball5" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(422.075, 250)
+
+[node name="Ball6" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(918.075, 240)
+
+[node name="Ball7" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(432.075, 602)
+
+[node name="Ball8" parent="." instance=ExtResource("3_6fmcn")]
+position = Vector2(928.075, 592)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -127.0
+offset_right = 202.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "[center][color=36972a]Pop[/color]Pidgeon[/center]"
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayButton")
+text = "Quit"

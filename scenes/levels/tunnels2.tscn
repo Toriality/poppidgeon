@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cndoh333edxh7"]
+
+[ext_resource type="PackedScene" uid="uid://cv0cgk6rohrlg" path="res://scenes/levels/level_structure.tscn" id="1_opovc"]
+[ext_resource type="Texture2D" uid="uid://b23tp1ucsibnu" path="res://sprites/textures/Tile/Tile 10 - 128x128.png" id="3_e8f70"]
+[ext_resource type="PackedScene" uid="uid://br43luwlmjkyu" path="res://scenes/levels/land.tscn" id="3_xfbsb"]
+[ext_resource type="PackedScene" uid="uid://gmv8kl8hg5qw" path="res://scenes/player.tscn" id="5_xtyai"]
+[ext_resource type="PackedScene" uid="uid://by7yk25eb52dw" path="res://scenes/ui.tscn" id="6_ukr6d"]
+[ext_resource type="PackedScene" uid="uid://cfrohuk70xqay" path="res://scenes/ball.tscn" id="7_vjymh"]
+[ext_resource type="PackedScene" uid="uid://uoptgr86f4xp" path="res://scenes/coin.tscn" id="8_upas0"]
+
+[node name="Tunnels" type="Node2D"]
+
+[node name="LevelStructure" parent="." instance=ExtResource("1_opovc")]
+
+[node name="Land" parent="." instance=ExtResource("3_xfbsb")]
+
+[node name="Polygon2D" parent="Land" index="0"]
+position = Vector2(768, 384)
+color = Color(0.439216, 0.439216, 0.439216, 1)
+offset = Vector2(-768, -384)
+texture = ExtResource("3_e8f70")
+polygon = PackedVector2Array(1136, 16, 16, 16, 16, 384, 720, 384, 720, 432, 736, 432, 736, 448, 704, 448, 704, 400, 16, 400, 16, 608, 1136, 608, 1136, 400, 1152, 400, 1152, 656, 0, 656, 0, 0, 1152, 0, 1152, 208, 224, 208, 224, 224, 192, 224, 192, 208, 208, 208, 208, 192, 1136, 192)
+
+[node name="Line2D" parent="Land" index="1"]
+visible = false
+points = PackedVector2Array(1136, 16, 16, 16, 16, 384, 720, 384, 720, 432, 736, 432, 736, 448, 704, 448, 704, 400, 16, 400, 16, 608, 1136, 608, 1136, 400, 1152, 400, 1152, 656, 0, 656, 0, 0, 1152, 0, 1152, 208, 224, 208, 224, 224, 192, 224, 192, 208, 208, 208, 208, 192, 1136, 192, 1136, 16)
+width = 0.0
+texture = null
+metadata/_edit_lock_ = true
+
+[node name="Land2" parent="." instance=ExtResource("3_xfbsb")]
+
+[node name="Polygon2D" parent="Land2" index="0"]
+color = Color(0.439216, 0.439216, 0.439216, 1)
+texture = ExtResource("3_e8f70")
+polygon = PackedVector2Array(944, 400, 944, 384, 1136, 384, 1136, 208, 1152, 208, 1152, 400)
+
+[node name="Line2D" parent="Land2" index="1"]
+visible = false
+points = PackedVector2Array(944, 400, 944, 384, 1136, 384, 1136, 208, 1152, 208, 1152, 400, 944, 400)
+width = 0.0
+texture = null
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("5_xtyai")]
+position = Vector2(918, 124)
+
+[node name="UI" parent="." instance=ExtResource("6_ukr6d")]
+
+[node name="Coin" parent="." instance=ExtResource("8_upas0")]
+position = Vector2(1056, 304)
+
+[node name="Ball" parent="." instance=ExtResource("7_vjymh")]
+position = Vector2(128, 100)
+velocity = Vector2(300, -20)
+
+[node name="Ball2" parent="." instance=ExtResource("7_vjymh")]
+position = Vector2(1049, 298)
+velocity = Vector2(-300, -20)
+
+[node name="Ball3" parent="." instance=ExtResource("7_vjymh")]
+position = Vector2(243, 495)
+velocity = Vector2(300, -20)
+balls_left = 4
+
+[editable path="Land"]
+[editable path="Land2"]

@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://u42tenwydfoi"]
+
+[ext_resource type="PackedScene" uid="uid://cv0cgk6rohrlg" path="res://scenes/levels/level_structure.tscn" id="1_2ip3g"]
+[ext_resource type="PackedScene" uid="uid://br43luwlmjkyu" path="res://scenes/levels/land.tscn" id="3_ghbct"]
+[ext_resource type="Texture2D" uid="uid://ddx5bof2jrubr" path="res://sprites/textures/Bricks/Brick 22 - 128x128.png" id="3_p6e3j"]
+[ext_resource type="PackedScene" uid="uid://by7yk25eb52dw" path="res://scenes/ui.tscn" id="4_3behh"]
+[ext_resource type="PackedScene" uid="uid://gmv8kl8hg5qw" path="res://scenes/player.tscn" id="5_3x16c"]
+[ext_resource type="PackedScene" uid="uid://uoptgr86f4xp" path="res://scenes/coin.tscn" id="6_e40at"]
+[ext_resource type="PackedScene" uid="uid://cfrohuk70xqay" path="res://scenes/ball.tscn" id="7_p23ff"]
+
+[node name="Tower2" type="Node2D"]
+
+[node name="LevelStructure" parent="." instance=ExtResource("1_2ip3g")]
+
+[node name="Land" parent="." instance=ExtResource("3_ghbct")]
+position = Vector2(577, 512)
+
+[node name="Polygon2D" parent="Land" index="0"]
+texture = ExtResource("3_p6e3j")
+polygon = PackedVector2Array(-577, 95.9999, -577, -448, -529, -496, -481, -448, -481, -400, -561, -400, -561, -288, -497, -288, -497, -304, -481, -304, -481, -272, -417, -272, -417, -256, -481, -256, -481, -96.0001, -449, -96.0001, -449, -80.0001, -481, -80.0001, -481, 79.9999, -321, 79.9999, -321, 95.9999, -16.9999, 95.9999, -16.9999, -240, -161, -240, -161, -256, -113, -256, -113, -272, -113, -288, -96.9999, -288, -96.9999, -272, -0.512009, -272, -0.999939, -240, -0.999939, 95.9999, -0.999939, 144, -577, 144)
+
+[node name="Line2D" parent="Land" index="1"]
+visible = false
+points = PackedVector2Array(-577, 95.9999, -577, -448, -529, -496, -481, -448, -481, -400, -561, -400, -561, -288, -497, -288, -497, -304, -481, -304, -481, -272, -417, -272, -417, -256, -481, -256, -481, -96.0001, -449, -96.0001, -449, -80.0001, -481, -80.0001, -481, 79.9999, -321, 79.9999, -321, 95.9999, -16.9999, 95.9999, -16.9999, -240, -161, -240, -161, -256, -113, -256, -113, -272, -113, -288, -96.9999, -288, -96.9999, -272, -0.512009, -272, -0.999939, -240, -0.999939, 95.9999, -0.999939, 144, -577, 144, -577, 95.9999)
+metadata/_edit_lock_ = true
+
+[node name="Land4" parent="." instance=ExtResource("3_ghbct")]
+position = Vector2(577, 512)
+scale = Vector2(-1, 1)
+
+[node name="Polygon2D" parent="Land4" index="0"]
+texture = ExtResource("3_p6e3j")
+polygon = PackedVector2Array(-577, 95.9999, -577, -448, -529, -496, -481, -448, -481, -400, -561, -400, -561, -288, -497, -288, -497, -304, -481, -304, -481, -272, -417, -272, -417, -256, -481, -256, -479, -96.0001, -447, -96.0001, -447, -80.0001, -479, -80.0001, -479, 79.9999, -319, 79.9999, -319, 95.9999, -15.0001, 95.9999, -15.0001, -240, -161, -240, -161, -256, -113, -256, -113, -272, -113, -288, -96.9999, -288, -96.9999, -272, -0.512009, -272, -0.999939, -240, -0.999939, 95.9999, -0.999939, 144, -577, 144)
+
+[node name="Line2D" parent="Land4" index="1"]
+visible = false
+points = PackedVector2Array(-577, 95.9999, -577, -448, -529, -496, -481, -448, -481, -400, -561, -400, -561, -288, -497, -288, -497, -304, -481, -304, -481, -272, -417, -272, -417, -256, -481, -256, -479, -96.0001, -447, -96.0001, -447, -80.0001, -479, -80.0001, -479, 79.9999, -319, 79.9999, -319, 95.9999, -15.0001, 95.9999, -15.0001, -240, -161, -240, -161, -256, -113, -256, -113, -272, -113, -288, -96.9999, -288, -96.9999, -272, -0.512009, -272, -0.999939, -240, -0.999939, 95.9999, -0.999939, 144, -577, 144, -577, 95.9999)
+metadata/_edit_lock_ = true
+
+[node name="Land2" parent="." instance=ExtResource("3_ghbct")]
+position = Vector2(577, 512)
+
+[node name="Polygon2D" parent="Land2" index="0"]
+texture = ExtResource("3_p6e3j")
+polygon = PackedVector2Array(-96.9999, -368, -113, -368, -113, -400, -32.9999, -400, -32.9999, -384, -96.9999, -384)
+
+[node name="Line2D" parent="Land2" index="1"]
+visible = false
+points = PackedVector2Array(-96.9999, -368, -113, -368, -113, -400, -32.9999, -400, -32.9999, -384, -96.9999, -384, -96.9999, -368)
+metadata/_edit_lock_ = true
+
+[node name="Land3" parent="." instance=ExtResource("3_ghbct")]
+position = Vector2(577, 512)
+scale = Vector2(-1, 1)
+
+[node name="Polygon2D" parent="Land3" index="0"]
+texture = ExtResource("3_p6e3j")
+polygon = PackedVector2Array(-96.9999, -368, -113, -368, -113, -400, -32.9999, -400, -32.9999, -384, -96.9999, -384)
+
+[node name="Line2D" parent="Land3" index="1"]
+visible = false
+points = PackedVector2Array(-96.9999, -368, -113, -368, -113, -400, -32.9999, -400, -32.9999, -384, -96.9999, -384, -96.9999, -368)
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("4_3behh")]
+
+[node name="Player" parent="." instance=ExtResource("5_3x16c")]
+position = Vector2(576, 176)
+
+[node name="Coin" parent="." instance=ExtResource("6_e40at")]
+position = Vector2(48, 154)
+
+[node name="Coin2" parent="." instance=ExtResource("6_e40at")]
+position = Vector2(1104, 154)
+
+[node name="Ball" parent="." instance=ExtResource("7_p23ff")]
+position = Vector2(352, 384)
+
+[node name="Ball2" parent="." instance=ExtResource("7_p23ff")]
+position = Vector2(816, 400)
+
+[node name="Ball3" parent="." instance=ExtResource("7_p23ff")]
+position = Vector2(192, 480)
+
+[node name="Ball4" parent="." instance=ExtResource("7_p23ff")]
+position = Vector2(976, 496)
+
+[editable path="Land"]
+[editable path="Land4"]
+[editable path="Land2"]
+[editable path="Land3"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://gmv8kl8hg5qw"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_q7x0v"]
+[ext_resource type="Texture2D" uid="uid://bwgaxqlfxuoca" path="res://sprites/player/JUMP_0.png" id="2_dptqt"]
+[ext_resource type="Texture2D" uid="uid://ri06e3ffwxsg" path="res://sprites/player/JUMP_1.png" id="3_7go1q"]
+[ext_resource type="Texture2D" uid="uid://optkth6ncute" path="res://sprites/player/R_0.png" id="5_fixlw"]
+[ext_resource type="Texture2D" uid="uid://b5ke8nm2blthw" path="res://sprites/player/R_1.png" id="6_u7m6y"]
+[ext_resource type="Texture2D" uid="uid://bf84hqeeblum3" path="res://sprites/player/R_2.png" id="7_5upab"]
+[ext_resource type="Texture2D" uid="uid://vrndngc2xuyl" path="res://sprites/player/STAND.png" id="8_6wewf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o3j5"]
+size = Vector2(42, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l633f"]
+size = Vector2(29, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mycv7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dptqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7go1q")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fixlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u7m6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5upab")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6wewf")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(544, 512)
+script = ExtResource("1_q7x0v")
+jump_velocity = -600.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_2o3j5")
+debug_color = Color(0.85098, 0.2, 0.772549, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_l633f")
+metadata/_edit_lock_ = true
+
+[node name="PlayerGFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(2.90625, 2.90625)
+sprite_frames = SubResource("SpriteFrames_mycv7")
+animation = &"move"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_collision"]

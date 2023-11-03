@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt8mrdw7lr457"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_apnof"]
+[ext_resource type="Texture2D" uid="uid://dchywidhtbo6a" path="res://sprites/textures/Tile/Tile 5 - 128x128.png" id="2_8kfff"]
+[ext_resource type="PackedScene" uid="uid://io0uvwdaxqcb" path="res://scenes/useless_ball.tscn" id="3_k1uaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejy2h"]
+size = Vector2(128, 656)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1pbxs"]
+a = Vector2(704, -432)
+b = Vector2(-192, -432)
+
+[sub_resource type="Theme" id="Theme_cjhdn"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apnof")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.266667, 0.619608, 0.223529, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -556.0
+offset_top = -304.0
+offset_right = -428.0
+offset_bottom = 312.0
+grow_vertical = 2
+texture = ExtResource("2_8kfff")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0.266667, 0.619608, 0.223529, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 468.0
+offset_top = -304.0
+offset_right = 596.0
+offset_bottom = 312.0
+grow_vertical = 2
+texture = ExtResource("2_8kfff")
+stretch_mode = 1
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-492, 24)
+shape = SubResource("RectangleShape2D_ejy2h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-236, 144)
+shape = SubResource("SegmentShape2D_1pbxs")
+debug_color = Color(0.964706, 0, 0.498039, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-236, 768)
+shape = SubResource("SegmentShape2D_1pbxs")
+debug_color = Color(0.964706, 0, 0.498039, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(532, 24)
+shape = SubResource("RectangleShape2D_ejy2h")
+
+[node name="Ball" parent="." instance=ExtResource("3_k1uaj")]
+position = Vector2(-220, 32)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -96.0
+offset_right = 114.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+theme_override_colors/font_color = Color(0.210527, 0.590597, 0.163594, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 25
+text = "Game Design & Programming"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+text = "Toriality"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+theme_override_colors/font_color = Color(0.210527, 0.590597, 0.163594, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 25
+text = "Art"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+text = "Toriality
+Craftpix.net
+Pipoya
+Onno Timmerman"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+theme_override_colors/font_color = Color(0.210527, 0.590597, 0.163594, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 25
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cjhdn")
+text = "\"Copycat\" by Syncopika
+\"Bubbles\" by SouljahdeShiva
+\"Feeling Good\" by Syncopika
+\"Step Step Step\" by Syncopika
+\"Mirage\" by Syncopika
+\"Swagger\" by Syncopika
+\"Safari\" by Syncopika"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_pressed"]

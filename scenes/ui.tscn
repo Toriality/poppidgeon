@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://by7yk25eb52dw"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_4k8l7"]
+[ext_resource type="Texture2D" uid="uid://cxxmwqffcn5y6" path="res://sprites/player/L_0.png" id="2_2t8ve"]
+[ext_resource type="FontFile" uid="uid://b03v3wehq4tej" path="res://fonts/KGRedHands.ttf" id="3_uhsxw"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_4k8l7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PlayerLives" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 608.0
+offset_right = 128.0
+offset_bottom = 648.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Control/PlayerLives"]
+layout_mode = 2
+texture = ExtResource("2_2t8ve")
+stretch_mode = 3
+flip_h = true
+
+[node name="Label" type="Label" parent="Control/PlayerLives"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uhsxw")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinishMenu" type="VBoxContainer" parent="Control"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -128.0
+offset_right = 96.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="GiftUI" type="ColorRect" parent="Control"]
+layout_mode = 2
+offset_left = 1072.0
+offset_top = 576.0
+offset_right = 1136.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.721569)
+
+[node name="GiftProgressBar" type="TextureProgressBar" parent="Control/GiftUI"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+value = 42.0
+fill_mode = 4
+nine_patch_stretch = true
+
+[node name="GiftTimer" type="Timer" parent="Control/GiftUI"]
+wait_time = 5.0
+one_shot = true
+
+[node name="LevelTimerLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uhsxw")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true

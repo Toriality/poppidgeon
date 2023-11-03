@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfrohuk70xqay"]
+
+[ext_resource type="Texture2D" uid="uid://blilfhxbxqhlx" path="res://sprites/ball.png" id="1_0co3t"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_hfa3m"]
+[ext_resource type="Shader" path="res://scenes/ball.gdshader" id="2_hr44q"]
+[ext_resource type="FontFile" uid="uid://b03v3wehq4tej" path="res://fonts/KGRedHands.ttf" id="3_juskp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_po6km"]
+radius = 80.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4kcs"]
+shader = ExtResource("2_hr44q")
+
+[node name="Ball" type="RigidBody2D" groups=["ball"]]
+collision_mask = 3
+max_contacts_reported = 7
+contact_monitor = true
+linear_damp = 100.0
+script = ExtResource("1_hfa3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_po6km")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k4kcs")
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("1_0co3t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -53.0
+offset_right = 23.0
+offset_bottom = 56.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_juskp")
+theme_override_font_sizes/font_size = 80
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

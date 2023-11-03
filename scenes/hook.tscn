@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bakwycffh0tx7"]
+
+[ext_resource type="Script" path="res://scripts/hook.gd" id="1_h1ojh"]
+[ext_resource type="Texture2D" uid="uid://cn5ghthqw5aqv" path="res://sprites/hook.png" id="2_4wnan"]
+[ext_resource type="PackedScene" uid="uid://bhc66c8bqk7pg" path="res://scenes/trail.tscn" id="3_akwo1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14k3e"]
+size = Vector2(33, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17rrh"]
+size = Vector2(10, 46)
+
+[node name="Hook" type="StaticBody2D" groups=["hook"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_h1ojh")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3.5)
+shape = SubResource("RectangleShape2D_14k3e")
+
+[node name="HookGFX" type="Sprite2D" parent="."]
+position = Vector2(1.5, 3.5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_4wnan")
+region_enabled = true
+region_rect = Rect2(260, 0, 132, 180)
+
+[node name="Trail" parent="." instance=ExtResource("3_akwo1")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, -16.5)
+scale = Vector2(1.6, 0.25)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_17rrh")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]

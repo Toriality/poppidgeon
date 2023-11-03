@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkjpvix0ijq23"]
+
+[ext_resource type="PackedScene" uid="uid://cv0cgk6rohrlg" path="res://scenes/levels/level_structure.tscn" id="1_do5g0"]
+[ext_resource type="PackedScene" uid="uid://by7yk25eb52dw" path="res://scenes/ui.tscn" id="3_hr56p"]
+[ext_resource type="PackedScene" uid="uid://gmv8kl8hg5qw" path="res://scenes/player.tscn" id="4_1ntl8"]
+[ext_resource type="PackedScene" uid="uid://br43luwlmjkyu" path="res://scenes/levels/land.tscn" id="5_rlkwe"]
+[ext_resource type="PackedScene" uid="uid://uoptgr86f4xp" path="res://scenes/coin.tscn" id="6_rdjar"]
+[ext_resource type="PackedScene" uid="uid://cfrohuk70xqay" path="res://scenes/ball.tscn" id="7_54wkd"]
+
+[node name="Platform" type="Node2D"]
+
+[node name="LevelStructure" parent="." instance=ExtResource("1_do5g0")]
+
+[node name="UI" parent="." instance=ExtResource("3_hr56p")]
+
+[node name="Player" parent="." instance=ExtResource("4_1ntl8")]
+
+[node name="Land" parent="." instance=ExtResource("5_rlkwe")]
+
+[node name="Polygon2D" parent="Land" index="0"]
+polygon = PackedVector2Array(0, 608, 1152, 608, 1152, 656, 0, 656)
+
+[node name="Line2D" parent="Land" index="1"]
+points = PackedVector2Array(0, 608, 1152, 608, 1152, 656, 0, 656, 0, 608)
+
+[node name="Land4" parent="." instance=ExtResource("5_rlkwe")]
+position = Vector2(432, -272)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" parent="Land4" index="0"]
+polygon = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528)
+
+[node name="Line2D" parent="Land4" index="1"]
+points = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528, 0, 560)
+
+[node name="Land9" parent="." instance=ExtResource("5_rlkwe")]
+position = Vector2(112, -368)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" parent="Land9" index="0"]
+polygon = PackedVector2Array(0, 560, 96, 560, 96, 528, 0, 528)
+
+[node name="Line2D" parent="Land9" index="1"]
+points = PackedVector2Array(0, 560, 96, 560, 96, 528, 0, 528, 0, 560)
+
+[node name="Land8" parent="." instance=ExtResource("5_rlkwe")]
+position = Vector2(64, -96)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" parent="Land8" index="0"]
+polygon = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528)
+
+[node name="Line2D" parent="Land8" index="1"]
+points = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528, 0, 560)
+
+[node name="Land6" parent="." instance=ExtResource("5_rlkwe")]
+position = Vector2(800, -144)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" parent="Land6" index="0"]
+polygon = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528)
+
+[node name="Line2D" parent="Land6" index="1"]
+points = PackedVector2Array(0, 560, 272, 560, 272, 528, 0, 528, 0, 560)
+
+[node name="Coin" parent="." instance=ExtResource("6_rdjar")]
+position = Vector2(160, 112)
+
+[node name="Coin3" parent="." instance=ExtResource("6_rdjar")]
+position = Vector2(560, 208)
+
+[node name="Coin4" parent="." instance=ExtResource("6_rdjar")]
+position = Vector2(1040, 336)
+
+[node name="Ball" parent="." instance=ExtResource("7_54wkd")]
+position = Vector2(928, 288)
+velocity = Vector2(0, 300)
+balls_left = 4
+
+[node name="Ball4" parent="." instance=ExtResource("7_54wkd")]
+position = Vector2(560, 143)
+velocity = Vector2(0, 300)
+balls_left = 4
+
+[editable path="Land"]
+[editable path="Land4"]
+[editable path="Land9"]
+[editable path="Land8"]
+[editable path="Land6"]

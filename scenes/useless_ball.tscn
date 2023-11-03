@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://io0uvwdaxqcb"]
+
+[ext_resource type="Script" path="res://scripts/useless_ball.gd" id="1_jntge"]
+[ext_resource type="Shader" path="res://scenes/ball.gdshader" id="2_6ch5k"]
+[ext_resource type="Texture2D" uid="uid://blilfhxbxqhlx" path="res://sprites/ball.png" id="3_y7alq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_po6km"]
+radius = 80.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4kcs"]
+shader = ExtResource("2_6ch5k")
+
+[node name="Ball" type="RigidBody2D" groups=["ball"]]
+collision_mask = 3
+max_contacts_reported = 7
+contact_monitor = true
+linear_damp = 100.0
+script = ExtResource("1_jntge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_po6km")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k4kcs")
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("3_y7alq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

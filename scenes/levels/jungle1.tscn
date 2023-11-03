@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://23j4dnuiejh0"]
+
+[ext_resource type="PackedScene" uid="uid://cv0cgk6rohrlg" path="res://scenes/levels/level_structure.tscn" id="1_bp7of"]
+[ext_resource type="PackedScene" uid="uid://br43luwlmjkyu" path="res://scenes/levels/land.tscn" id="3_btrs0"]
+[ext_resource type="Texture2D" uid="uid://bm731qvugxaqy" path="res://sprites/textures/Grass/Grass 9 - 128x128.png" id="3_otaoc"]
+[ext_resource type="Texture2D" uid="uid://cr3ngrt36k5l3" path="res://sprites/textures/Grass/Grass 2 - 128x128.png" id="4_k0kbl"]
+[ext_resource type="PackedScene" uid="uid://by7yk25eb52dw" path="res://scenes/ui.tscn" id="4_ya613"]
+[ext_resource type="PackedScene" uid="uid://gmv8kl8hg5qw" path="res://scenes/player.tscn" id="5_veklb"]
+[ext_resource type="PackedScene" uid="uid://cfrohuk70xqay" path="res://scenes/ball.tscn" id="6_64sbh"]
+[ext_resource type="PackedScene" uid="uid://uoptgr86f4xp" path="res://scenes/coin.tscn" id="7_yimr4"]
+
+[node name="Jungle" type="Node2D"]
+
+[node name="LevelStructure" parent="." instance=ExtResource("1_bp7of")]
+
+[node name="Land" parent="." instance=ExtResource("3_btrs0")]
+
+[node name="Polygon2D" parent="Land" index="0"]
+texture = ExtResource("3_otaoc")
+polygon = PackedVector2Array(272, 592, 400, 608, 704, 608, 752, 592, 1056, 592, 1040, 464, 1008, 272, 992, 224, 992, 192, 1104, 160, 1152, 160, 1152, 688, 0, 688, 0, 352, 128, 352, 160, 368, 160, 400, 96, 432, 112, 528, 256, 560)
+
+[node name="Line2D" parent="Land" index="1"]
+points = PackedVector2Array(272, 592, 400, 608, 704, 608, 752, 592, 1056, 592, 1040, 464, 1008, 272, 992, 224, 992, 192, 1104, 160, 1152, 160, 1152, 688, 0, 688, 0, 352, 128, 352, 160, 368, 160, 400, 96, 432, 112, 528, 256, 560, 272, 592)
+texture = ExtResource("4_k0kbl")
+metadata/_edit_lock_ = true
+
+[node name="UI" parent="." instance=ExtResource("4_ya613")]
+
+[node name="Player" parent="." instance=ExtResource("5_veklb")]
+position = Vector2(560, 560)
+
+[node name="Land2" parent="." instance=ExtResource("3_btrs0")]
+position = Vector2(8, 64)
+
+[node name="Polygon2D" parent="Land2" index="0"]
+texture = ExtResource("3_otaoc")
+polygon = PackedVector2Array(504, 400, 632, 416, 712, 224, 744, 208, 744, 192, 664, 192, 632, 160, 504, 160, 392, 208)
+
+[node name="Line2D" parent="Land2" index="1"]
+points = PackedVector2Array(504, 400, 632, 416, 712, 224, 744, 208, 744, 192, 664, 192, 632, 160, 504, 160, 392, 208, 504, 400)
+texture = ExtResource("4_k0kbl")
+metadata/_edit_lock_ = true
+
+[node name="Ball" parent="." instance=ExtResource("6_64sbh")]
+position = Vector2(320, 144)
+velocity = Vector2(-200, 50)
+balls_left = 4
+
+[node name="Ball2" parent="." instance=ExtResource("6_64sbh")]
+position = Vector2(832, 144)
+velocity = Vector2(200, 50)
+balls_left = 4
+
+[node name="Coin" parent="." instance=ExtResource("7_yimr4")]
+position = Vector2(63, 307)
+
+[node name="Coin6" parent="." instance=ExtResource("7_yimr4")]
+position = Vector2(1072, 112)
+
+[node name="Coin4" parent="." instance=ExtResource("7_yimr4")]
+position = Vector2(528, 91)
+
+[node name="Coin5" parent="." instance=ExtResource("7_yimr4")]
+position = Vector2(608, 91)
+
+[editable path="Land"]
+[editable path="Land2"]

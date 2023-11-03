@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b8ggf3ujepmwi"]
+
+[ext_resource type="StyleBox" uid="uid://bwnwtk0x8umb2" path="res://scenes/menus/box_hover.tres" id="1_2cbov"]
+[ext_resource type="StyleBox" uid="uid://bcyionjc8hnaf" path="res://scenes/menus/box_solid.tres" id="1_a8gae"]
+[ext_resource type="FontFile" uid="uid://b03v3wehq4tej" path="res://fonts/KGRedHands.ttf" id="1_ig5se"]
+[ext_resource type="StyleBox" uid="uid://cy0v4lbfgdffe" path="res://scenes/menus/box_pressed.tres" id="3_lsqu8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n05al"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcrui"]
+
+[resource]
+default_font = ExtResource("1_ig5se")
+default_font_size = 16
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/styles/disabled = SubResource("StyleBoxFlat_n05al")
+Button/styles/focus = ExtResource("1_2cbov")
+Button/styles/hover = ExtResource("1_2cbov")
+Button/styles/normal = ExtResource("1_a8gae")
+Button/styles/pressed = ExtResource("3_lsqu8")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.298039, 0.298039, 0.298039, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.741176)
+Label/constants/line_spacing = 4
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_wcrui")

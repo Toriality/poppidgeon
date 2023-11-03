@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqntx1ttx01b7"]
+
+[ext_resource type="PackedScene" uid="uid://cv0cgk6rohrlg" path="res://scenes/levels/level_structure.tscn" id="1_6dbkt"]
+[ext_resource type="PackedScene" uid="uid://br43luwlmjkyu" path="res://scenes/levels/land.tscn" id="4_suphe"]
+[ext_resource type="PackedScene" uid="uid://gmv8kl8hg5qw" path="res://scenes/player.tscn" id="5_8iix8"]
+[ext_resource type="PackedScene" uid="uid://cfrohuk70xqay" path="res://scenes/ball.tscn" id="6_lrl5r"]
+[ext_resource type="PackedScene" uid="uid://by7yk25eb52dw" path="res://scenes/ui.tscn" id="7_0tulf"]
+
+[node name="Second" type="Node2D"]
+
+[node name="LevelStructure" parent="." instance=ExtResource("1_6dbkt")]
+
+[node name="Land" parent="." instance=ExtResource("4_suphe")]
+
+[node name="Polygon2D" parent="Land" index="0"]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(1, 576, 113, 560, 257, 560, 385, 576, 513, 592, 641, 592, 769, 576, 897, 560, 1025, 560, 1153, 576, 1153, 768, 1, 768)
+
+[node name="Line2D" parent="Land" index="1"]
+points = PackedVector2Array(1, 576, 113, 560, 257, 560, 385, 576, 513, 592, 641, 592, 769, 576, 897, 560, 1025, 560, 1153, 576, 1153, 768, 1, 768, 1, 576)
+
+[node name="Player" parent="." instance=ExtResource("5_8iix8")]
+position = Vector2(576, 531)
+
+[node name="Ball" parent="." instance=ExtResource("6_lrl5r")]
+position = Vector2(160, 240)
+velocity = Vector2(200, -100)
+
+[node name="Ball2" parent="." instance=ExtResource("6_lrl5r")]
+position = Vector2(912, 240)
+velocity = Vector2(-200, -100)
+
+[node name="UI" parent="." instance=ExtResource("7_0tulf")]
+
+[connection signal="player_died" from="Player" to="UI" method="_on_player_died"]
+[connection signal="ready" from="Player" to="Player" method="_on_ready"]
+
+[editable path="Land"]
