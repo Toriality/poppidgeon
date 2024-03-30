@@ -1,3 +1,7 @@
+### [Play game](torialitydev.itch.io/poppidgeon)
+
+---
+
 **That's my second game, I didn't fully finish it so don't expect something pretty and nice ;) but I'm sure you will have some fun time**
 
 **PopPidgeon** is a simple platform game that you goal is to pop all the bubbles on the screen, while avoiding colliding with it.
